@@ -19,3 +19,13 @@ start_btn.onclick = () => {
 exit_btn.onclick = () => {
   info_box.classList.remove("activeInfo");
 };
+
+// Continue btn functionality
+continue_btn.onclick = () => {
+  info_box.classList.remove("activeInfo");
+  quiz_box.classList.add("activeQuiz");
+  showQuetions(0); //calling showQestions function
+  queCounter(1); //passing 1 parameter to queCounter
+  startTimer(15); //calling startTimer function
+  startTimerLine(0); //calling startTimerLine function
+};
