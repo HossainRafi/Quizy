@@ -1,4 +1,4 @@
-// Selecting necessary variables
+// Selecting necessary elements
 const start_btn = document.querySelector(".start_btn button");
 const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
@@ -9,3 +9,8 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+
+// Start btn function
+start_btn.onclick = () => {
+  info_box.classList.add("activeInfo");
+};
