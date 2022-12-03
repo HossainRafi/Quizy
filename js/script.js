@@ -41,7 +41,7 @@ let widthValue = 0;
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
-// Restart quit btn functionality
+// Restart quit btn functionalit
 restart_quiz.onclick = () => {
   quiz_box.classList.add("activeQuiz"); //show quiz box
   result_box.classList.remove("activeResult"); //hide result box
@@ -58,4 +58,9 @@ restart_quiz.onclick = () => {
   startTimerLine(widthValue); //calling startTimerLine function
   timeText.textContent = "Time Left"; //change the text of timeText to Time Left
   next_btn.classList.remove("show"); //hide the next button
+};
+
+// Quit quiz btn functionality
+quit_quiz.onclick = () => {
+  window.location.reload();
 };
