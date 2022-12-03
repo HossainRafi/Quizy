@@ -197,6 +197,7 @@ function showResult() {
     scoreText.innerHTML = scoreTag;
   }
 }
+
 // Timer functionality
 function startTimer(time) {
   counter = setInterval(timer, 1000);
@@ -228,4 +229,26 @@ function startTimer(time) {
       next_btn.classList.add("show"); //show the next button if user selected any option
     }
   }
+}
+
+function startTimerLine(time) {
+  counterLine = setInterval(timer, 29);
+  function timer() {
+    time += 1; //upgrading time value with 1
+    time_line.style.width = time + "px"; //increasing width of time_line with px by time value
+    if (time > 549) {
+      //if time value is greater than 549
+      clearInterval(counterLine); //clear counterLine
+    }
+  }
+}
+
+function queCounter(index) {
+  let totalQueCounTag =
+    "<span><p>" +
+    index +
+    "</p> of <p>" +
+    questions.length +
+    "</p> Questions</span>";
+  bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
 }
