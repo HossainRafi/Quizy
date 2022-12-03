@@ -64,3 +64,26 @@ restart_quiz.onclick = () => {
 quit_quiz.onclick = () => {
   window.location.reload();
 };
+
+const next_btn = document.querySelector("footer .next_btn");
+const bottom_ques_counter = document.querySelector("footer .total_que");
+
+// Next question btn functionality
+next_btn.onclick = () => {
+  if (que_count < questions.length - 1) {
+    que_count++; //increment the que_count value
+    que_numb++; //increment the que_numb value
+    showQuetions(que_count); //calling showQestions function
+    queCounter(que_numb); //passing que_numb value to queCounter
+    clearInterval(counter); //clear counter
+    clearInterval(counterLine); //clear counterLine
+    startTimer(timeValue); //calling startTimer function
+    startTimerLine(widthValue); //calling startTimerLine function
+    timeText.textContent = "Time Left"; //change the timeText to Time Left
+    next_btn.classList.remove("show"); //hide the next button
+  } else {
+    clearInterval(counter); //clear counter
+    clearInterval(counterLine); //clear counterLine
+    showResult(); //calling showResult function
+  }
+};
