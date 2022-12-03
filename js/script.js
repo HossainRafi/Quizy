@@ -127,7 +127,7 @@ function showQuetions(index) {
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
-//Functionality for clicke in any options
+//Functionality for click in any options
 function optionSelected(answer) {
   clearInterval(counter); //clear counter
   clearInterval(counterLine); //clear counterLine
@@ -149,6 +149,7 @@ function optionSelected(answer) {
 
     for (i = 0; i < allOptions; i++) {
       if (option_list.children[i].textContent == correcAns) {
+        //if there is an option which is matched to an array answer
         option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
         option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
         console.log("Auto selected correct answer.");
@@ -159,4 +160,42 @@ function optionSelected(answer) {
     option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
   }
   next_btn.classList.add("show"); //show the next button if user selected any option
+}
+
+
+
+function showResult() {
+  info_box.classList.remove("activeInfo"); //hide info box
+  quiz_box.classList.remove("activeQuiz"); //hide quiz box
+  result_box.classList.add("activeResult"); //show result box
+  const scoreText = result_box.querySelector(".score_text");
+  if (userScore > 3) {
+    // if user scored more than 3
+    //creating a new span tag and passing the user score number and total question number
+    let scoreTag =
+      "<span>and congrats! 🎉, You got <p>" +
+      userScore +
+      "</p> out of <p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
+  } else if (userScore > 1) {
+    // if user scored more than 1
+    let scoreTag =
+      "<span>and nice 😎, You got <p>" +
+      userScore +
+      "</p> out of <p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag;
+  } else {
+    // if user scored less than 1
+    let scoreTag =
+      "<span>and sorry 😐, You got only <p>" +
+      userScore +
+      "</p> out of <p>" +
+      questions.length +
+      "</p></span>";
+    scoreText.innerHTML = scoreTag;
+  }
 }
