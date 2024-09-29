@@ -17,4 +17,3 @@
 ## Project Images:
 ![app image](https://i.ibb.co/qs4HCtt/rules.png)
 ![app image](https://i.ibb.co/hgG0CxL/questions.png)
-![app image](https://i.ibb.co/7rp0dsz/result.png)
